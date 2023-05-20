@@ -1796,7 +1796,7 @@ describe("tokens", () => {
           password: userOne.password,
           refreshExpiresInSeconds: 1,
         });
-        shortExpiryRefreshToken = shortRefreshLogin.data.bearerToken.token;
+        shortExpiryRefreshToken = shortRefreshLogin.data.refreshToken.token;
 
         await new Promise((r) => setTimeout(r, 3000));
 
@@ -2010,22 +2010,3 @@ describe("miscellaneous", () => {
       expect(response.headers).toHaveProperty("access-control-allow-origin"));
   });
 });
-
-/* ======================= Me ======================= */
-/*
-describe("Me", () => {
-  describe("with student information", () => {
-    beforeAll(async () => {
-      const request = await to.object(instance.get("me"));
-      return (response = request.resolve
-        ? request.resolve
-        : request.reject.response);
-    });
-
-    test("should return name property", () =>
-      expect(response.data).toHaveProperty("name"));
-    test("should return student_number property", () =>
-      expect(response.data).toHaveProperty("student_number"));
-  });
-});
-*/
