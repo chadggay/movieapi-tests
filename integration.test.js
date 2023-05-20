@@ -443,7 +443,32 @@ describe("movies", () => {
 
   /* ======================= Movie Data ======================= */
   describe("data", () => {
-    describe("movie that does not exist (99999) in data set", () => {
+    describe("with invalid query params", () => {
+      beforeAll(async () => {
+        const request = await to.object(
+          instance.get(`movies/data/tt0110912?aQueryParam=test`)
+        );
+        return (response = request.resolve
+          ? request.resolve
+          : request.reject.response);
+      });
+
+      test("should return status code 400", () =>
+        expect(response.status).toBe(400));
+
+      test("should return error with boolean of true", () =>
+        expect(response.data.error).toBe(true));
+      test("should contain message property", () =>
+        expect(response.data).toHaveProperty("message"));
+      test("should contain message property", () =>
+        expect(response.data.message).toContain(
+          "Query parameters are not permitted."
+        ));
+      test("should be an object result", () =>
+        expect(response.data).toBeInstanceOf(Object));
+    });
+
+    describe("with movie that does not exist (99999) in data set", () => {
       beforeAll(async () => {
         const request = await to.object(instance.get(`movies/data/99999`));
         return (response = request.resolve
@@ -462,7 +487,7 @@ describe("movies", () => {
         expect(response.data).toBeInstanceOf(Object));
     });
 
-    describe("movie that does exist (tt0110912)", () => {
+    describe("with movie that does exist (tt0110912)", () => {
       beforeAll(async () => {
         const request = await to.object(instance.get(`movies/data/tt0110912`));
         return (response = request.resolve
@@ -511,42 +536,44 @@ describe("movies", () => {
         expect(response.data.principals[1].characters.length).toBe(1));
       test("characters should be an array result", () =>
         expect(response.data.principals[1].characters[0]).toBe("Vincent Vega"));
+
+      // ratings
+      test("ratings should be an array result", () =>
+        expect(response.data.ratings).toBeInstanceOf(Array));
+      test("should contain correct number of ratings", () =>
+        expect(response.data.ratings.length).toBe(3));
+
+      // ratings - imdb
+      test("should contain correct source property", () =>
+        expect(response.data.ratings[0].source).toBe(
+          "Internet Movie Database"
+        ));
+      test("should contain correct source property", () =>
+        expect(response.data.ratings[0].value).toBe(8.9));
+
+      // ratings - rotten tomatoes
+      test("should contain correct source property", () =>
+        expect(response.data.ratings[1].source).toBe("Rotten Tomatoes"));
+      test("should contain correct source property", () =>
+        expect(response.data.ratings[1].value).toBe(92));
+
+      // ratings - metracritic
+      test("should contain correct source property", () =>
+        expect(response.data.ratings[2].source).toBe("Metacritic"));
+      test("should contain correct source property", () =>
+        expect(response.data.ratings[2].value).toBe(94));
+
+      test("should contain correct boxoffice property", () =>
+        expect(response.data.boxoffice).toBe(107928762));
+      test("should contain correct poster property", () =>
+        expect(response.data.poster).toBe(
+          "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
+        ));
+      test("should contain correct plot property", () =>
+        expect(response.data.plot).toBe(
+          "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption."
+        ));
     });
-
-    // ratings
-    test("ratings should be an array result", () =>
-      expect(response.data.ratings).toBeInstanceOf(Array));
-    test("should contain correct number of ratings", () =>
-      expect(response.data.ratings.length).toBe(3));
-
-    // ratings - imdb
-    test("should contain correct source property", () =>
-      expect(response.data.ratings[0].source).toBe("Internet Movie Database"));
-    test("should contain correct source property", () =>
-      expect(response.data.ratings[0].value).toBe(8.9));
-
-    // ratings - rotten tomatoes
-    test("should contain correct source property", () =>
-      expect(response.data.ratings[1].source).toBe("Rotten Tomatoes"));
-    test("should contain correct source property", () =>
-      expect(response.data.ratings[1].value).toBe(92));
-
-    // ratings - metracritic
-    test("should contain correct source property", () =>
-      expect(response.data.ratings[2].source).toBe("Metacritic"));
-    test("should contain correct source property", () =>
-      expect(response.data.ratings[2].value).toBe(94));
-
-    test("should contain correct boxoffice property", () =>
-      expect(response.data.boxoffice).toBe(107928762));
-    test("should contain correct poster property", () =>
-      expect(response.data.poster).toBe(
-        "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
-      ));
-    test("should contain correct plot property", () =>
-      expect(response.data.plot).toBe(
-        "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption."
-      ));
   });
 });
 
@@ -891,19 +918,46 @@ describe("people", () => {
   });
 
   describe("with valid auth", () => {
-    beforeAll(async () => {
-      const request = await to.object(
-        instance.get(`people/99999`, {
-          headers: { Authorization: `Bearer ${userOneBearerToken}` },
-        })
-      );
+    describe("with invalid query params", () => {
+      beforeAll(async () => {
+        const request = await to.object(
+          instance.get(`people/nm0000686?aQueryParam=test`, {
+            headers: { Authorization: `Bearer ${userOneBearerToken}` },
+          })
+        );
+        return (response = request.resolve
+          ? request.resolve
+          : request.reject.response);
+      });
 
-      return (response = request.resolve
-        ? request.resolve
-        : request.reject.response);
+      test("should return status code 400", () =>
+        expect(response.status).toBe(400));
+
+      test("should return error with boolean of true", () =>
+        expect(response.data.error).toBe(true));
+      test("should contain message property", () =>
+        expect(response.data).toHaveProperty("message"));
+      test("should contain message property", () =>
+        expect(response.data.message).toContain(
+          "Query parameters are not permitted."
+        ));
+      test("should be an object result", () =>
+        expect(response.data).toBeInstanceOf(Object));
     });
 
     describe("person that does not exist (99999) in data set", () => {
+      beforeAll(async () => {
+        const request = await to.object(
+          instance.get(`people/99999`, {
+            headers: { Authorization: `Bearer ${userOneBearerToken}` },
+          })
+        );
+
+        return (response = request.resolve
+          ? request.resolve
+          : request.reject.response);
+      });
+
       test("should return status code 404", () =>
         expect(response.status).toBe(404));
 
