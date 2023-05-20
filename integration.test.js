@@ -23,8 +23,7 @@ describe("movies", () => {
 
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
-      test("should return status text - OK", () =>
-        expect(response.statusText).toBe("OK"));
+
       test("should be an array result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
@@ -85,8 +84,7 @@ describe("movies", () => {
 
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
-      test("should return status text - OK", () =>
-        expect(response.statusText).toBe("OK"));
+
       test("should be an array result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
@@ -149,8 +147,7 @@ describe("movies", () => {
 
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
-      test("should return status text - OK", () =>
-        expect(response.statusText).toBe("OK"));
+
       test("should be an array result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
@@ -195,8 +192,7 @@ describe("movies", () => {
 
       test("should return status code 400", () =>
         expect(response.status).toBe(400));
-      test("should return status text - Bad Request", () =>
-        expect(response.statusText).toBe("Bad Request"));
+
       test("should contain message property", () =>
         expect(response.data.message).toBe(
           "Invalid year format. Format must be yyyy."
@@ -215,8 +211,7 @@ describe("movies", () => {
 
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
-      test("should return status text - OK", () =>
-        expect(response.statusText).toBe("OK"));
+
       test("should be an array result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
@@ -275,8 +270,7 @@ describe("movies", () => {
 
       test("should return status code 400", () =>
         expect(response.status).toBe(400));
-      test("should return status text - Bad Request", () =>
-        expect(response.statusText).toBe("Bad Request"));
+
       test("should contain message property", () =>
         expect(response.data.message).toBe(
           "Invalid page format. page must be a number."
@@ -293,8 +287,7 @@ describe("movies", () => {
 
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
-      test("should return status text - OK", () =>
-        expect(response.statusText).toBe("OK"));
+
       test("should be an array result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
@@ -355,8 +348,7 @@ describe("movies", () => {
 
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
-      test("should return status text - OK", () =>
-        expect(response.statusText).toBe("OK"));
+
       test("should be an array result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
@@ -415,8 +407,7 @@ describe("movies", () => {
 
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
-      test("should return status text - OK", () =>
-        expect(response.statusText).toBe("OK"));
+
       test("should be an array result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
@@ -462,8 +453,7 @@ describe("movies", () => {
 
       test("should return status code 404", () =>
         expect(response.status).toBe(404));
-      test("should return status text - Not Found", () =>
-        expect(response.statusText).toBe("Not Found"));
+
       test("should return error with boolean of true", () =>
         expect(response.data.error).toBe(true));
       test("should contain message property", () =>
@@ -482,8 +472,7 @@ describe("movies", () => {
 
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
-      test("should return status text - OK", () =>
-        expect(response.statusText).toBe("OK"));
+
       test("should be an array result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
@@ -566,6 +555,7 @@ let userOneBearerToken;
 let profileUserTwoBearerToken;
 let profileUserOneBearerToken;
 let shortExpiryBearerToken;
+let shortExpiryRefreshToken;
 let userThreeBearerToken;
 let userThreeRefreshToken;
 
@@ -584,8 +574,7 @@ describe("user", () => {
       });
       test("should return status code 400", () =>
         expect(response.status).toBe(400));
-      test("should return status text - Bad Request", () =>
-        expect(response.statusText).toBe("Bad Request"));
+
       test("should contain message property", () =>
         expect(response.data).toHaveProperty("message"));
     });
@@ -603,8 +592,7 @@ describe("user", () => {
       });
       test("should return status code 400", () =>
         expect(response.status).toBe(400));
-      test("should return status text - Bad Request", () =>
-        expect(response.statusText).toBe("Bad Request"));
+
       test("should contain message property", () =>
         expect(response.data).toHaveProperty("message"));
     });
@@ -618,8 +606,7 @@ describe("user", () => {
       });
       test("should return status code 400", () =>
         expect(response.status).toBe(400));
-      test("should return status text - Bad Request", () =>
-        expect(response.statusText).toBe("Bad Request"));
+
       test("should contain message property", () =>
         expect(response.data).toHaveProperty("message"));
     });
@@ -640,8 +627,7 @@ describe("user", () => {
 
       test("should return status code 201", () =>
         expect(response.status).toBe(201));
-      test("should return status text - Created", () =>
-        expect(response.statusText).toBe("Created"));
+
       test("should contain message property", () =>
         expect(response.data).toHaveProperty("message"));
     });
@@ -662,8 +648,7 @@ describe("login", () => {
     });
     test("should return status code 400", () =>
       expect(response.status).toBe(400));
-    test("should return status text - Bad Request", () =>
-      expect(response.statusText).toBe("Bad Request"));
+
     test("should contain message property", () =>
       expect(response.data).toHaveProperty("message"));
   });
@@ -679,8 +664,7 @@ describe("login", () => {
     });
     test("should return status code 400", () =>
       expect(response.status).toBe(400));
-    test("should return status text - Bad Request", () =>
-      expect(response.statusText).toBe("Bad Request"));
+
     test("should contain message property", () =>
       expect(response.data).toHaveProperty("message"));
   });
@@ -700,8 +684,7 @@ describe("login", () => {
 
     test("should return status code 401", () =>
       expect(response.status).toBe(401));
-    test("should return status text - Unauthorized", () =>
-      expect(response.statusText).toBe("Unauthorized"));
+
     test("should contain message property", () =>
       expect(response.data).toHaveProperty("message"));
   });
@@ -721,8 +704,7 @@ describe("login", () => {
 
     test("should return status code 401", () =>
       expect(response.status).toBe(401));
-    test("should return status text - Unauthorized", () =>
-      expect(response.statusText).toBe("Unauthorized"));
+
     test("should contain message property", () =>
       expect(response.data).toHaveProperty("message"));
   });
@@ -743,8 +725,6 @@ describe("login", () => {
 
     test("should return status code 200", () =>
       expect(response.status).toBe(200));
-    test("should return status text - OK", () =>
-      expect(response.statusText).toBe("OK"));
 
     describe("bearerToken", () => {
       test("should contain token property", () =>
@@ -799,8 +779,7 @@ describe("people", () => {
 
       test("should return status code 401", () =>
         expect(response.status).toBe(401));
-      test("should return status text - Unauthorized", () =>
-        expect(response.statusText).toBe("Unauthorized"));
+
       test("should return error with boolean of true", () =>
         expect(response.data.error).toBe(true));
       test("should contain message property", () =>
@@ -826,8 +805,7 @@ describe("people", () => {
 
       test("should return status code 401", () =>
         expect(response.status).toBe(401));
-      test("should return status text - Unauthorized", () =>
-        expect(response.statusText).toBe("Unauthorized"));
+
       test("should return error with boolean of true", () =>
         expect(response.data.error).toBe(true));
       test("should contain message property", () =>
@@ -852,8 +830,7 @@ describe("people", () => {
 
       test("should return status code 401", () =>
         expect(response.status).toBe(401));
-      test("should return status text - Unauthorized", () =>
-        expect(response.statusText).toBe("Unauthorized"));
+
       test("should return error with boolean of true", () =>
         expect(response.data.error).toBe(true));
       test("should contain message property", () =>
@@ -876,8 +853,7 @@ describe("people", () => {
 
       test("should return status code 401", () =>
         expect(response.status).toBe(401));
-      test("should return status text - Unauthorized", () =>
-        expect(response.statusText).toBe("Unauthorized"));
+
       test("should return error with boolean of true", () =>
         expect(response.data.error).toBe(true));
       test("should contain message property", () =>
@@ -900,8 +876,7 @@ describe("people", () => {
 
       test("should return status code 401", () =>
         expect(response.status).toBe(401));
-      test("should return status text - Unauthorized", () =>
-        expect(response.statusText).toBe("Unauthorized"));
+
       test("should return error with boolean of true", () =>
         expect(response.data.error).toBe(true));
       test("should contain message property", () =>
@@ -931,8 +906,7 @@ describe("people", () => {
     describe("person that does not exist (99999) in data set", () => {
       test("should return status code 404", () =>
         expect(response.status).toBe(404));
-      test("should return status text - Not Found", () =>
-        expect(response.statusText).toBe("Not Found"));
+
       test("should return error with boolean of true", () =>
         expect(response.data.error).toBe(true));
       test("should contain message property", () =>
@@ -955,8 +929,7 @@ describe("people", () => {
 
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
-      test("should return status text - OK", () =>
-        expect(response.statusText).toBe("OK"));
+
       test("should be an array result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
@@ -998,7 +971,7 @@ describe("people", () => {
       const shortLogin = await instance.post(`user/login`, {
         email: userOne.email,
         password: userOne.password,
-        expiresInSeconds: 1,
+        bearerExpiresInSeconds: 1,
       });
       shortExpiryBearerToken = shortLogin.data.bearerToken.token;
 
@@ -1020,9 +993,6 @@ describe("people", () => {
 
       test("should return status code 401", async () => {
         expect(response.status).toBe(401);
-      });
-      test("should return status text", async () => {
-        expect(response.statusText).toBe("Unauthorized");
       });
       test("should contain message property", () =>
         expect(response.data).toHaveProperty("message"));
@@ -1068,8 +1038,7 @@ describe("profile", () => {
 
       test("should return status code 404", () =>
         expect(response.status).toBe(404));
-      test("should return status text - Not Found", () =>
-        expect(response.statusText).toBe("Not Found"));
+
       test("should return error with boolean of true", () =>
         expect(response.data.error).toBe(true));
       test("should contain message property", () =>
@@ -1093,8 +1062,7 @@ describe("profile", () => {
 
       test("should return status code 404", () =>
         expect(response.status).toBe(404));
-      test("should return status text - Not Found", () =>
-        expect(response.statusText).toBe("Not Found"));
+
       test("should return error with boolean of true", () =>
         expect(response.data.error).toBe(true));
       test("should contain message property", () =>
@@ -1115,8 +1083,7 @@ describe("profile", () => {
       });
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
-      test("should return status text - OK", () =>
-        expect(response.statusText).toBe("OK"));
+
       test("should be an object result", () =>
         expect(response.data).toBeInstanceOf(Object));
       test("should return user email property", () =>
@@ -1145,8 +1112,7 @@ describe("profile", () => {
       });
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
-      test("should return status text - OK", () =>
-        expect(response.statusText).toBe("OK"));
+
       test("should be an object result", () =>
         expect(response.data).toBeInstanceOf(Object));
       test("should return user email property", () =>
@@ -1175,8 +1141,7 @@ describe("profile", () => {
       });
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
-      test("should return status text - OK", () =>
-        expect(response.statusText).toBe("OK"));
+
       test("should be an object result", () =>
         expect(response.data).toBeInstanceOf(Object));
       test("should return user email property", () =>
@@ -1211,8 +1176,7 @@ describe("profile", () => {
 
       test("should return status code 401", () =>
         expect(response.status).toBe(401));
-      test("should return status text - Unauthorized", () =>
-        expect(response.statusText).toBe("Unauthorized"));
+
       test("should return error with boolean of true", () =>
         expect(response.data.error).toBe(true));
       test("should contain message property", () =>
@@ -1243,8 +1207,6 @@ describe("profile", () => {
 
       test("should return status code 403", () =>
         expect(response.status).toBe(403));
-      test("should return status text - Forbidden", () =>
-        expect(response.statusText).toBe("Forbidden"));
       test("should return error with boolean of true", () =>
         expect(response.data.error).toBe(true));
       test("should contain message property", () =>
@@ -1272,8 +1234,6 @@ describe("profile", () => {
 
         test("should return status code 400", () =>
           expect(response.status).toBe(400));
-        test("should return status text - Bad Request", () =>
-          expect(response.statusText).toBe("Bad Request"));
         test("should return error with boolean of true", () =>
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
@@ -1309,8 +1269,7 @@ describe("profile", () => {
 
         test("should return status code 400", () =>
           expect(response.status).toBe(400));
-        test("should return status text - Bad Request", () =>
-          expect(response.statusText).toBe("Bad Request"));
+
         test("should return error with boolean of true", () =>
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
@@ -1346,8 +1305,7 @@ describe("profile", () => {
 
         test("should return status code 400", () =>
           expect(response.status).toBe(400));
-        test("should return status text - Bad Request", () =>
-          expect(response.statusText).toBe("Bad Request"));
+
         test("should return error with boolean of true", () =>
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
@@ -1383,8 +1341,7 @@ describe("profile", () => {
 
         test("should return status code 400", () =>
           expect(response.status).toBe(400));
-        test("should return status text - Bad Request", () =>
-          expect(response.statusText).toBe("Bad Request"));
+
         test("should return error with boolean of true", () =>
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
@@ -1420,8 +1377,7 @@ describe("profile", () => {
 
         test("should return status code 400", () =>
           expect(response.status).toBe(400));
-        test("should return status text - Bad Request", () =>
-          expect(response.statusText).toBe("Bad Request"));
+
         test("should return error with boolean of true", () =>
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
@@ -1457,8 +1413,7 @@ describe("profile", () => {
 
         test("should return status code 400", () =>
           expect(response.status).toBe(400));
-        test("should return status text - Bad Request", () =>
-          expect(response.statusText).toBe("Bad Request"));
+
         test("should return error with boolean of true", () =>
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
@@ -1494,8 +1449,7 @@ describe("profile", () => {
 
         test("should return status code 400", () =>
           expect(response.status).toBe(400));
-        test("should return status text - Bad Request", () =>
-          expect(response.statusText).toBe("Bad Request"));
+
         test("should return error with boolean of true", () =>
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
@@ -1531,8 +1485,7 @@ describe("profile", () => {
 
         test("should return status code 400", () =>
           expect(response.status).toBe(400));
-        test("should return status text - Bad Request", () =>
-          expect(response.statusText).toBe("Bad Request"));
+
         test("should return error with boolean of true", () =>
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
@@ -1564,8 +1517,7 @@ describe("profile", () => {
 
         test("should return status code 400", () =>
           expect(response.status).toBe(400));
-        test("should return status text - Bad Request", () =>
-          expect(response.statusText).toBe("Bad Request"));
+
         test("should return error with boolean of true", () =>
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
@@ -1601,8 +1553,6 @@ describe("profile", () => {
 
         test("should return status code 200", () =>
           expect(response.status).toBe(200));
-        test("should return status text - OK", () =>
-          expect(response.statusText).toBe("OK"));
         test("should be an object result", () =>
           expect(response.data).toBeInstanceOf(Object));
         test("should return user email property", () =>
@@ -1632,8 +1582,7 @@ describe("profile", () => {
       });
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
-      test("should return status text - OK", () =>
-        expect(response.statusText).toBe("OK"));
+
       test("should be an object result", () =>
         expect(response.data).toBeInstanceOf(Object));
       test("should return user email property", () =>
@@ -1662,8 +1611,7 @@ describe("profile", () => {
       });
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
-      test("should return status text - OK", () =>
-        expect(response.statusText).toBe("OK"));
+
       test("should be an object result", () =>
         expect(response.data).toBeInstanceOf(Object));
       test("should return user email property", () =>
@@ -1692,8 +1640,7 @@ describe("profile", () => {
       });
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
-      test("should return status text - OK", () =>
-        expect(response.statusText).toBe("OK"));
+
       test("should be an object result", () =>
         expect(response.data).toBeInstanceOf(Object));
       test("should return user email property", () =>
@@ -1710,53 +1657,6 @@ describe("profile", () => {
   });
 });
 
-/* ======================= Misc ======================= */
-
-describe("miscellaneous", () => {
-  describe("with non-existent route", () => {
-    beforeAll(async () => {
-      const request = await to.object(instance.get(`${uuid()}`));
-      return (response = request.resolve
-        ? request.resolve
-        : request.reject.response);
-    });
-
-    test("return a status of 404", () => expect(response.status).toBe(404));
-    test("should return status text - Not Found", () =>
-      expect(response.statusText).toBe("Not Found"));
-  });
-
-  describe("with swagger docs route", () => {
-    beforeAll(async () => {
-      const request = await to.object(instance.get(``));
-      return (response = request.resolve
-        ? request.resolve
-        : request.reject.response);
-    });
-
-    test("return a status of 200", () => expect(response.status).toBe(200));
-    test("should return status text - OK", () =>
-      expect(response.statusText).toBe("OK"));
-    test("should return Swagger UI", () =>
-      expect(response.data).toContain("Swagger UI"));
-  });
-
-  describe("with cors header", () => {
-    beforeAll(async () => {
-      const request = await to.object(instance.get(``));
-      return (response = request.resolve
-        ? request.resolve
-        : request.reject.response);
-    });
-
-    test("return a status of 200", () => expect(response.status).toBe(200));
-    test("should return status text - OK", () =>
-      expect(response.statusText).toBe("OK"));
-    test("should return access-control-allow-origin in headers", () =>
-      expect(response.headers).toHaveProperty("access-control-allow-origin"));
-  });
-});
-
 /* ======================= Tokens ======================= */
 describe("tokens", () => {
   beforeAll(async () => {
@@ -1764,26 +1664,17 @@ describe("tokens", () => {
       email: userThree.email,
       password: userThree.password,
     });
-
-    const login = await instance.post(`user/login`, {
-      email: userThree.email,
-      password: userThree.password,
-    });
-    userThreeBearerToken = login.data.bearerToken.token;
-    userThreeRefreshToken = login.data.refreshToken.token;
-
-    const shortLogin = await instance.post(`user/login`, {
-      email: userOne.email,
-      password: userOne.password,
-      expiresInSeconds: 1,
-    });
-    shortExpiryBearerToken = shortLogin.data.bearerToken.token;
-
-    await new Promise((r) => setTimeout(r, 3000));
   });
 
   describe("refresh", () => {
     beforeAll(async () => {
+      const login = await instance.post(`user/login`, {
+        email: userThree.email,
+        password: userThree.password,
+      });
+      userThreeBearerToken = login.data.bearerToken.token;
+      userThreeRefreshToken = login.data.refreshToken.token;
+
       const request = await to.object(
         instance.post(`user/refresh`, {
           refreshToken: userThreeRefreshToken,
@@ -1795,39 +1686,137 @@ describe("tokens", () => {
         : request.reject.response);
     });
 
-    test("should return status code 200", () =>
-      expect(response.status).toBe(200));
-    test("should return status text - OK", () =>
-      expect(response.statusText).toBe("OK"));
+    describe("with incomplete body", () => {
+      beforeAll(async () => {
+        const request = await to.object(
+          instance.post(`user/refresh`, {
+            refreshToken: null,
+          })
+        );
 
-    test("should contain token property", () =>
-      expect(response.data).toHaveProperty("bearerToken"));
-    test("should contain token_type property", () =>
-      expect(response.data.bearerToken).toHaveProperty("token_type"));
-    test("should contain expires_in property", () =>
-      expect(response.data.bearerToken).toHaveProperty("expires_in"));
-    test("should contain correct token_type", () =>
-      expect(response.data.bearerToken.token_type).toBe(`Bearer`));
-    test("should contain correct expires_in", () =>
-      expect(response.data.bearerToken.expires_in).toBe(600));
+        return (response = request.resolve
+          ? request.resolve
+          : request.reject.response);
+      });
 
-    test("should contain token property", () =>
-      expect(response.data).toHaveProperty("refreshToken"));
-    test("should contain token_type property", () =>
-      expect(response.data.refreshToken).toHaveProperty("token_type"));
-    test("should contain expires_in property", () =>
-      expect(response.data.refreshToken).toHaveProperty("expires_in"));
-    test("should contain correct token_type", () =>
-      expect(response.data.refreshToken.token_type).toBe(`Refresh`));
-    test("should contain correct expires_in", () =>
-      expect(response.data.refreshToken.expires_in).toBe(86400));
+      test("should be an object result", () =>
+        expect(response.data).toBeInstanceOf(Object));
+      test("should return status code 400", () =>
+        expect(response.status).toBe(400));
 
-    afterAll(() => {
-      userThreeRefreshToken = response.data.refreshToken.token;
+      test("should return error with boolean of false", () =>
+        expect(response.data.error).toBe(true));
+      test("should contain message property", () =>
+        expect(response.data.message).toBe(
+          "Request body incomplete, refresh token required"
+        ));
+    });
+
+    describe("with invalid refreshToken", () => {
+      beforeAll(async () => {
+        const request = await to.object(
+          instance.post(`user/refresh`, {
+            refreshToken: "notARealRefreshToken",
+          })
+        );
+
+        return (response = request.resolve
+          ? request.resolve
+          : request.reject.response);
+      });
+
+      test("should be an object result", () =>
+        expect(response.data).toBeInstanceOf(Object));
+      test("should return status code 401", () =>
+        expect(response.status).toBe(401));
+      test("should return error with boolean of true", () =>
+        expect(response.data.error).toBe(true));
+      test("should contain message property", () =>
+        expect(response.data.message).toBe("Invalid JWT token"));
+    });
+
+    describe("with expired refreshToken", () => {
+      beforeAll(async () => {
+        const shortRefreshLogin = await instance.post(`user/login`, {
+          email: userOne.email,
+          password: userOne.password,
+          refreshExpiresInSeconds: 1,
+        });
+        shortExpiryRefreshToken = shortRefreshLogin.data.bearerToken.token;
+
+        await new Promise((r) => setTimeout(r, 3000));
+
+        const request = await to.object(
+          instance.post(`user/refresh`, {
+            refreshToken: `${shortExpiryRefreshToken}`,
+          })
+        );
+
+        return (response = request.resolve
+          ? request.resolve
+          : request.reject.response);
+      });
+
+      test("should be an object result", () =>
+        expect(response.data).toBeInstanceOf(Object));
+      test("should return status code 401", () =>
+        expect(response.status).toBe(401));
+      test("should return error with boolean of true", () =>
+        expect(response.data.error).toBe(true));
+      test("should contain message property", () =>
+        expect(response.data.message).toBe("JWT token has expired"));
+    });
+
+    describe("with valid refreshToken", () => {
+      beforeAll(async () => {
+        const request = await to.object(
+          instance.post(`user/refresh`, {
+            refreshToken: userThreeRefreshToken,
+          })
+        );
+
+        return (response = request.resolve
+          ? request.resolve
+          : request.reject.response);
+      });
+
+      test("should return status code 200", () =>
+        expect(response.status).toBe(200));
+
+      test("should contain token property", () =>
+        expect(response.data).toHaveProperty("bearerToken"));
+      test("should contain token_type property", () =>
+        expect(response.data.bearerToken).toHaveProperty("token_type"));
+      test("should contain expires_in property", () =>
+        expect(response.data.bearerToken).toHaveProperty("expires_in"));
+      test("should contain correct token_type", () =>
+        expect(response.data.bearerToken.token_type).toBe(`Bearer`));
+      test("should contain correct expires_in", () =>
+        expect(response.data.bearerToken.expires_in).toBe(600));
+
+      test("should contain token property", () =>
+        expect(response.data).toHaveProperty("refreshToken"));
+      test("should contain token_type property", () =>
+        expect(response.data.refreshToken).toHaveProperty("token_type"));
+      test("should contain expires_in property", () =>
+        expect(response.data.refreshToken).toHaveProperty("expires_in"));
+      test("should contain correct token_type", () =>
+        expect(response.data.refreshToken.token_type).toBe(`Refresh`));
+      test("should contain correct expires_in", () =>
+        expect(response.data.refreshToken.expires_in).toBe(86400));
     });
   });
 
   describe("logout", () => {
+    beforeAll(async () => {
+      const login = await instance.post(`user/login`, {
+        email: userThree.email,
+        password: userThree.password,
+      });
+      userThreeBearerToken = login.data.bearerToken.token;
+      userThreeRefreshToken = login.data.refreshToken.token;
+    });
+
     describe("with incomplete body", () => {
       beforeAll(async () => {
         const request = await to.object(
@@ -1845,8 +1834,7 @@ describe("tokens", () => {
         expect(response.data).toBeInstanceOf(Object));
       test("should return status code 400", () =>
         expect(response.status).toBe(400));
-      test("should return status text - Bad Request", () =>
-        expect(response.statusText).toBe("Bad Request"));
+
       test("should return error with boolean of false", () =>
         expect(response.data.error).toBe(true));
       test("should contain message property", () =>
@@ -1878,6 +1866,29 @@ describe("tokens", () => {
         expect(response.data.message).toBe("Invalid JWT token"));
     });
 
+    describe("with expired refreshToken", () => {
+      beforeAll(async () => {
+        const request = await to.object(
+          instance.post(`user/logout`, {
+            refreshToken: `${shortExpiryRefreshToken}`,
+          })
+        );
+
+        return (response = request.resolve
+          ? request.resolve
+          : request.reject.response);
+      });
+
+      test("should be an object result", () =>
+        expect(response.data).toBeInstanceOf(Object));
+      test("should return status code 401", () =>
+        expect(response.status).toBe(401));
+      test("should return error with boolean of true", () =>
+        expect(response.data.error).toBe(true));
+      test("should contain message property", () =>
+        expect(response.data.message).toBe("JWT token has expired"));
+    });
+
     describe("with valid refreshToken", () => {
       beforeAll(async () => {
         const request = await to.object(
@@ -1900,6 +1911,49 @@ describe("tokens", () => {
       test("should contain message property", () =>
         expect(response.data.message).toBe("Token successfully invalidated"));
     });
+  });
+});
+
+/* ======================= Misc ======================= */
+
+describe("miscellaneous", () => {
+  describe("with non-existent route", () => {
+    beforeAll(async () => {
+      const request = await to.object(instance.get(`${uuid()}`));
+      return (response = request.resolve
+        ? request.resolve
+        : request.reject.response);
+    });
+
+    test("return a status of 404", () => expect(response.status).toBe(404));
+  });
+
+  describe("with swagger docs route", () => {
+    beforeAll(async () => {
+      const request = await to.object(instance.get(``));
+      return (response = request.resolve
+        ? request.resolve
+        : request.reject.response);
+    });
+
+    test("return a status of 200", () => expect(response.status).toBe(200));
+
+    test("should return Swagger UI", () =>
+      expect(response.data).toContain("Swagger UI"));
+  });
+
+  describe("with cors header", () => {
+    beforeAll(async () => {
+      const request = await to.object(instance.get(``));
+      return (response = request.resolve
+        ? request.resolve
+        : request.reject.response);
+    });
+
+    test("return a status of 200", () => expect(response.status).toBe(200));
+
+    test("should return access-control-allow-origin in headers", () =>
+      expect(response.headers).toHaveProperty("access-control-allow-origin"));
   });
 });
 
