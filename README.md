@@ -9,11 +9,11 @@ npm install
 npm test
 ```
 
-By default we test `http://localhost:3001`, however you may change the URL setting to suit your system by editing the definition in the file `api.js`:
+By default we test `http://localhost:3000`, however you may change the URL setting to suit your system by editing the definition in the file `api.js`:
 
 ```javascript
-//If you are serving your server on any port other than 3001, change the port here, or alternatively change the url as approriate
-const REMOTE_API_URL = `http://localhost:3001`;
+//If you are serving your server on any port other than 3000, change the port here, or alternatively change the url as approriate
+const REMOTE_API_URL = `http://localhost:3000`;
 ```
 
 ## After each run
