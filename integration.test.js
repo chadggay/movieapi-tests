@@ -24,7 +24,7 @@ describe("movies", () => {
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
 
-      test("should be an array result", () =>
+      test("should be an object result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
       // movies
@@ -85,7 +85,7 @@ describe("movies", () => {
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
 
-      test("should be an array result", () =>
+      test("should be an object result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
       // movies
@@ -148,7 +148,7 @@ describe("movies", () => {
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
 
-      test("should be an array result", () =>
+      test("should be an object result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
       // movies
@@ -212,7 +212,7 @@ describe("movies", () => {
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
 
-      test("should be an array result", () =>
+      test("should be an object result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
       // movies
@@ -288,7 +288,7 @@ describe("movies", () => {
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
 
-      test("should be an array result", () =>
+      test("should be an object result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
       // movies
@@ -349,7 +349,7 @@ describe("movies", () => {
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
 
-      test("should be an array result", () =>
+      test("should be an object result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
       // movies
@@ -408,7 +408,7 @@ describe("movies", () => {
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
 
-      test("should be an array result", () =>
+      test("should be an object result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
       // movies
@@ -498,7 +498,7 @@ describe("movies", () => {
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
 
-      test("should be an array result", () =>
+      test("should be an object result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
       test("should contain correct title property", () =>
@@ -532,9 +532,9 @@ describe("movies", () => {
 
       test("characters should be an array result", () =>
         expect(response.data.principals[1].characters).toBeInstanceOf(Array));
-      test("characters should be an array result", () =>
+      test("characters should have the correct number of items", () =>
         expect(response.data.principals[1].characters.length).toBe(1));
-      test("characters should be an array result", () =>
+      test("characters should have item correct character", () =>
         expect(response.data.principals[1].characters[0]).toBe("Vincent Vega"));
 
       // ratings
@@ -984,7 +984,7 @@ describe("people", () => {
       test("should return status code 200", () =>
         expect(response.status).toBe(200));
 
-      test("should be an array result", () =>
+      test("should be an object result", () =>
         expect(response.data).toBeInstanceOf(Object));
 
       test("should contain correct name property", () =>
