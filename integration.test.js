@@ -1728,16 +1728,6 @@ describe("tokens", () => {
       });
       userThreeBearerToken = login.data.bearerToken.token;
       userThreeRefreshToken = login.data.refreshToken.token;
-
-      const request = await to.object(
-        instance.post(`user/refresh`, {
-          refreshToken: userThreeRefreshToken,
-        })
-      );
-
-      return (response = request.resolve
-        ? request.resolve
-        : request.reject.response);
     });
 
     describe("with incomplete body", () => {
