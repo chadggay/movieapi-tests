@@ -7,6 +7,13 @@
         "pageTitle": "Test Report",
         "outputPath": "report.html"
       }
+    ],
+    [
+      "jest-html-reporters",
+      {
+        "inlineSource": true,
+        "filename": "report2.html"
+      }
     ]
   ],
   "testSequencer": "./sequence.js"
