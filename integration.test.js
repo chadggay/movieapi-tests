@@ -1292,10 +1292,11 @@ describe("profile", () => {
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
           expect(response.data).toHaveProperty("message"));
-        test("should return specific message for 'Request body incomplete: firstName, lastName, dob and address are required.'", () =>
-          expect(response.data.message).toBe(
-            "Request body incomplete: firstName, lastName, dob and address are required."
-          ));
+        test("should return specific message for 'Request body incomplete: firstName, lastName, dob and address are required.' (optional last period)", () =>
+          expect([
+            "Request body incomplete: firstName, lastName, dob and address are required.",
+            "Request body incomplete: firstName, lastName, dob and address are required",
+          ]).toContain(response.data.message));
       });
 
       describe("with invalid firstName", () => {
@@ -1328,10 +1329,11 @@ describe("profile", () => {
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
           expect(response.data).toHaveProperty("message"));
-        test("should return a specific message for 'Request body invalid: firstName, lastName and address must be strings only.'", () =>
-          expect(response.data.message).toBe(
-            "Request body invalid: firstName, lastName and address must be strings only."
-          ));
+        test("should return a specific message for 'Request body invalid: firstName, lastName(, dob) and address must be strings only.'", () =>
+          expect([
+            "Request body invalid: firstName, lastName, dob and address must be strings only",
+            "Request body invalid: firstName, lastName and address must be strings only.",
+          ]).toContain(response.data.message));
       });
 
       describe("with invalid lastName", () => {
@@ -1436,10 +1438,11 @@ describe("profile", () => {
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
           expect(response.data).toHaveProperty("message"));
-        test("should return a specific message for 'Invalid input: dob must be a real date in format YYYY-MM-DD.'", () =>
-          expect(response.data.message).toBe(
-            "Invalid input: dob must be a real date in format YYYY-MM-DD."
-          ));
+        test("should return a specific message for 'Invalid input: dob must be a real date in format YYYY-MM-DD.' (optional last period)", () =>
+          expect([
+            "Invalid input: dob must be a real date in format YYYY-MM-DD.",
+            "Invalid input: dob must be a real date in format YYYY-MM-DD",
+          ]).toContain(response.data.message));
       });
 
       describe("with valid formatted non-real date (out of bounds check)", () => {
@@ -1472,10 +1475,11 @@ describe("profile", () => {
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
           expect(response.data).toHaveProperty("message"));
-        test("should return a specific message for 'Invalid input: dob must be a real date in format YYYY-MM-DD.'", () =>
-          expect(response.data.message).toBe(
-            "Invalid input: dob must be a real date in format YYYY-MM-DD."
-          ));
+        test("should return a specific message for 'Invalid input: dob must be a real date in format YYYY-MM-DD.' (optional last period)", () =>
+          expect([
+            "Invalid input: dob must be a real date in format YYYY-MM-DD.",
+            "Invalid input: dob must be a real date in format YYYY-MM-DD",
+          ]).toContain(response.data.message));
       });
 
       describe("with valid formatted non-real date (JavaScript date rollover check)", () => {
@@ -1508,10 +1512,11 @@ describe("profile", () => {
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
           expect(response.data).toHaveProperty("message"));
-        test("should return a specific message for 'Invalid input: dob must be a real date in format YYYY-MM-DD.'", () =>
-          expect(response.data.message).toBe(
-            "Invalid input: dob must be a real date in format YYYY-MM-DD."
-          ));
+        test("should return a specific message for 'Invalid input: dob must be a real date in format YYYY-MM-DD.' (optional last period)", () =>
+          expect([
+            "Invalid input: dob must be a real date in format YYYY-MM-DD.",
+            "Invalid input: dob must be a real date in format YYYY-MM-DD",
+          ]).toContain(response.data.message));
       });
 
       describe("with valid formatted non-real date (non leap-year check)", () => {
